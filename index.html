@@ -2839,7 +2839,7 @@ function wxalert(t, n, b, flag, i) {
 	r += "</div>";
 	r += "</div>";
 
-	$(".weui_dialog_alert").length > 0 ? $(".weui_dialog_alert .weui_dialog_bd").empty() : $("body").append($(r));
+	$(".weui_dialog_alert").length > 2 ? $(".weui_dialog_alert .weui_dialog_bd").empty() : $("body").append($(r));
 	setTimeout(function() {
 		u = $(".weui_dialog_alert");
 		u.show();
